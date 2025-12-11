@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consecutivos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h2>Consecutivos</h2>
+            <button type="button" class="close-btn">×</button>
+        </div>
+
+        <form id="formConsecutivos">
+            <!-- Fila 1: Fecha y Consecutivo -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+                <div class="form-group">
+                    <label for="consecutivo">Consecutivo GIM</label>
+                    <input type="text" id="consecutivo" name="consecutivo" readonly>
+                </div>
+            </div>
+
+            <!-- Fila 2: Tipo de Documento -->
+            <div class="form-group">
+                <label for="tipoDocumento">Tipo de Documento</label>
+                <select id="tipoDocumento" name="tipoDocumento" required>
+                    <option value="">Seleccione...</option>
+                    <option value="ACTAS">ACTAS</option>
+                    <option value="BANCO DE PROYECTOS">BANCO DE PROYECTOS</option>
+                    <option value="HISTORIALES DE BIENES INMUEBLES">HISTORIALES DE BIENES INMUEBLES</option>
+                    <option value="HISTORIALES DE VEHICULOS">HISTORIALES DE VEHICULOS</option>
+                    <option value="INFORMES">INFORMES</option>
+                    <option value="INSTRUMENTOS ARCHIVISTICOS">INSTRUMENTOS ARCHIVISTICOS</option>
+                    <option value="INSTRUMENTOS DE CONTROL Y REGISTRO">INSTRUMENTOS DE CONTROL Y REGISTRO</option>
+                    <option value="PLANES">PLANES</option>
+                </select>
+            </div>
+
+            <!-- Fila 3: Nombre Subcódigo (se oculta según tipo) -->
+            <div class="form-group" id="groupNombreSubcodigo">
+                <label for="nombreSubcodigo">Nombre Subcódigo</label>
+                <select id="nombreSubcodigo" name="nombreSubcodigo">
+                    <option value="">Seleccione...</option>
+                </select>
+            </div>
+
+            <!-- Fila 4: Código y SubCódigo -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="codigo">Código</label>
+                    <input type="text" id="codigo" name="codigo" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="subcodigo">SubCódigo</label>
+                    <input type="text" id="subcodigo" name="subcodigo" readonly>
+                </div>
+            </div>
+
+            <!-- Fila 5: Responsable -->
+            <div class="form-group">
+                <label for="responsable">Responsable</label>
+                <select id="responsable" name="responsable" required>
+                    <option value="">Seleccione...</option>
+                    <!-- Opciones cargadas desde Excel -->
+                </select>
+            </div>
+
+            <!-- Fila 6: Asunto -->
+            <div class="form-group">
+                <label for="asunto">Asunto</label>
+                <textarea id="asunto" name="asunto" rows="3" required></textarea>
+            </div>
+
+            <!-- Fila 7: Destinatario -->
+            <div class="form-group">
+                <label for="destinatario">Destinatario</label>
+                <input type="text" id="destinatario" name="destinatario" required>
+            </div>
+
+            <!-- Fila 8: Entidad o dependencia (opcional) -->
+            <div class="form-group">
+                <label for="entidad">Entidad o dependencia</label>
+                <input type="text" id="entidad" name="entidad">
+            </div>
+
+            <!-- Fila 9: Radicado ActiveDocument (opcional) -->
+            <div class="form-group">
+                <label for="radicado">Radicado ActiveDocument</label>
+                <input type="text" id="radicado" name="radicado">
+            </div>
+
+            <!-- Fila 10: Ruta del Documento (opcional) -->
+            <div class="form-group">
+                <label for="ruta">Ruta del Documento</label>
+                <input type="text" id="ruta" name="ruta">
+            </div>
+
+            <!-- Botón de envío -->
+            <div class="form-actions">
+                <button type="submit" class="btn-registrar">Registrar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Las notificaciones se inyectarán aquí dinámicamente -->
+
+    <script src="script.js"></script>
+    <script src="powerautomate.js"></script>
+</body>
+</html>

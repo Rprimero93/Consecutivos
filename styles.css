@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.form-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+}
+.form-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-header h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+.close-btn:hover {
+    transform: scale(1.1);
+}
+form {
+    padding: 20px;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.form-group {
+    margin-bottom: 12px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+input[readonly] {
+    background-color: #f5f5f5;
+    color: #666;
+    cursor: not-allowed;
+}
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+.form-group.hidden {
+    display: none;
+}
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.btn-registrar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+.btn-registrar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+.btn-registrar:active {
+    transform: translateY(0);
+}
+.btn-registrar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ============================================ */
+/* NOTIFICACIÓN DE ÉXITO */
+/* ============================================ */
+
+.success-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 400px;
+    transform: translateX(450px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 9999;
+}
+
+.success-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.success-notification.hide {
+    transform: translateX(450px);
+    opacity: 0;
+}
+
+.success-icon {
+    width: 24px;
+    height: 24px;
+    background: #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.success-icon::after {
+    content: '✓';
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.success-content {
+    flex: 1;
+}
+
+.success-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.success-message {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.consecutivo-box {
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.consecutivo-text {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+    flex: 1;
+    word-break: break-all;
+}
+
+.btn-copy {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.btn-copy:hover {
+    background: #5568d3;
+}
+
+.btn-copy:active {
+    transform: scale(0.95);
+}
+
+.btn-copy.copied {
+    background: #10b981;
+}
+
+.close-notification {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+    flex-shrink: 0;
+}
+
+.close-notification:hover {
+    color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .form-container {
+        max-width: 100%;
+    }
+    .success-notification {
+        left: 20px;
+        right: 20px;
+        max-width: none;
+    }
+    .success-notification.show {
+        transform: translateX(0);
+    }
+    .success-notification.hide {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
